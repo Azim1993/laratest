@@ -14,7 +14,7 @@ class ProductController extends Controller
     // view all product
     protected function index()
     {
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->get();;
         return view('product.products',compact('products'));
     }
 
@@ -34,7 +34,7 @@ class ProductController extends Controller
         $addProduct->save();
 
         if($addProduct)
-            return view('product.products');
+            return redirect('products');
 
         return back();
     }

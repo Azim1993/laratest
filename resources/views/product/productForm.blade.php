@@ -15,7 +15,7 @@
 </div>
 
 <div class="row form-group{!! $errors->has('ProductPrice') ? ' has-error' : '' !!}">
-    {!! Form::label('ProductPrice','Shop Web Link', array('class' => 'col-md-4 control-label text-right')) !!}
+    {!! Form::label('ProductPrice','Price', array('class' => 'col-md-4 control-label text-right')) !!}
     <div class="col-md-8">
         {!! Form::number('ProductPrice',old('ProductPrice'),array('class'=>'form-control','placeholder'=>'Price')) !!}
         @include('layouts.formError',['inputFieldName' => 'ProductPrice'])

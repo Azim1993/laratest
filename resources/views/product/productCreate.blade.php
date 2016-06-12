@@ -26,16 +26,12 @@
 @section('customJs')
     <script type="text/javascript">
         $(document).ready(function(){
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $('.btn').click(function(){
                 $.ajax({
                     url: 'addProduct',
                     type: "post",
-                    data: {
-                        'ProductName':$('input[name=ProductName]').val(),
-                        'ProductStock':$('input[name=ProductStock]').val(),
-                        'ProductPrice':$('input[name=ProductPrice]').val(),
-                        '_token': $('input[name=_token]').val()
-                    },
+                    data: {_token: CSRF_TOKEN},
                     dataType    : 'json',
                     encode          : true
                 });
